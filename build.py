@@ -64,6 +64,40 @@ def read_csv(name):
         return list(csv.DictReader(f))
 
 
+def parse_date(s):
+    """日付を読み取る。2026-09-03 でも 2026/9/3 でも受け付ける。
+    Excelで開いて保存すると書式が勝手に変わるため、両方を許している。
+    戻り値は (並べ替え用のタプル, 画面に出す文字列)。"""
+    t = (s or "").strip().replace("/", "-")
+    parts = [p for p in t.split("-") if p != ""]
+    try:
+        y, m, d = int(parts[0]), int(parts[1]), int(parts[2])
+        return (y, m, d), "%04d.%02d.%02d" % (y, m, d)
+    except Exception:
+        return (0, 0, 0), (s or "")
+
+
+def sorted_news():
+    """新しい順に並べ替えて返す。CSVのどこに足しても正しい位置に入る。"""
+    rows = read_csv("news.csv")
+    for r in rows:
+        r["_key"], r["_disp"] = parse_date(r.get("date"))
+    rows.sort(key=lambda r: r["_key"], reverse=True)
+    return rows
+
+
+def sorted_pubs():
+    """年の新しい順に並べ替えて返す。"""
+    rows = read_csv("publications.csv")
+    def key(r):
+        try:
+            return int(str(r.get("year", "")).strip())
+        except Exception:
+            return 0
+    rows.sort(key=key, reverse=True)
+    return rows
+
+
 def esc(s):
     return html.escape(s or "", quote=False)
 
@@ -134,16 +168,16 @@ def footer():
 
 
 def news_rows(root, limit=None):
-    rows = read_csv("news.csv")
+    rows = sorted_news()
     if limit:
         rows = rows[:limit]
     return "".join(
-        f'<a href="{root}news/"><time>{esc(r["date"].replace("-", "."))}</time>'
+        f'<a href="{root}news/"><time>{esc(r["_disp"])}</time>'
         f'<em>{esc(r["category"])}</em>{esc(r["title"])}</a>' for r in rows)
 
 
 def pub_rows(limit=None):
-    rows = read_csv("publications.csv")
+    rows = sorted_pubs()
     if limit:
         rows = rows[:limit]
     out = []

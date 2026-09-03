@@ -76,6 +76,40 @@ def data(name):
         return list(csv.DictReader(f))
 
 
+def parse_date(s):
+    """日付を読み取る。2026-09-03 でも 2026/9/3 でも受け付ける。
+    Excelで開いて保存すると書式が勝手に変わるため、両方を許している。
+    戻り値は (並べ替え用のタプル, 画面に出す文字列)。"""
+    t = (s or "").strip().replace("/", "-")
+    parts = [p for p in t.split("-") if p != ""]
+    try:
+        y, m, d = int(parts[0]), int(parts[1]), int(parts[2])
+        return (y, m, d), "%04d.%02d.%02d" % (y, m, d)
+    except Exception:
+        return (0, 0, 0), (s or "")
+
+
+def sorted_news():
+    """新しい順に並べ替えて返す。CSVのどこに足しても正しい位置に入る。"""
+    rows = data("news.csv")
+    for r in rows:
+        r["_key"], r["_disp"] = parse_date(r.get("date"))
+    rows.sort(key=lambda r: r["_key"], reverse=True)
+    return rows
+
+
+def sorted_pubs():
+    """年の新しい順に並べ替えて返す。"""
+    rows = data("publications.csv")
+    def key(r):
+        try:
+            return int(str(r.get("year", "")).strip())
+        except Exception:
+            return 0
+    rows.sort(key=key, reverse=True)
+    return rows
+
+
 def shell(title, css, body, current, root):
     return f"""<!doctype html>
 <html lang="ja">
@@ -102,9 +136,9 @@ def shell(title, css, body, current, root):
 # ---------------------------------------------------------------- 案C
 def build_c():
     ni = "".join(
-        f'<a class="mC__ni" href="#"><time>{n["date"].replace("-", ".")}</time>'
+        f'<a class="mC__ni" href="#"><time>{n["_disp"]}</time>'
         f'<span class="mC__nt" data-k="{n["category"]}">{n["category"]}</span>'
-        f'<p>{n["title"]}</p></a>' for n in data("news.csv")[:7])
+        f'<p>{n["title"]}</p></a>' for n in sorted_news()[:7])
     mem = "".join(
         f'<figure><img src="../../assets/img/{m["photo"] or "person-1.svg"}" alt="" width="260" height="347">'
         f'<figcaption><b>{m["name"]}</b><span>{m["role"]}<br>{m["field"]}</span></figcaption></figure>'
@@ -113,7 +147,7 @@ def build_c():
         f'<div class="mC__pub" data-t="{"paper" if p["type"] == "論文" else "award"}">'
         f'<time>{p["year"]}</time><p>{p["title"]}<em><b>{p["source"]}</b></em></p>'
         + ('<span class="mC__badge">OPEN ACCESS</span>' if p["oa"] == "yes" else "<span></span>")
-        + "</div>" for p in data("publications.csv")[:5])
+        + "</div>" for p in sorted_pubs()[:5])
     figs = ["fig-grain.png", "fig-lattice.svg", "fig-layers.svg"]
     cards = "".join(f"""
         <a class="mC__card" href="#">
@@ -244,9 +278,9 @@ def build_c():
 # ---------------------------------------------------------------- 案A
 def build_a():
     ni = "".join(
-        f'<div class="mA__ni"><time>{n["date"].replace("-", ".")}</time>'
+        f'<div class="mA__ni"><time>{n["_disp"]}</time>'
         f'<span class="mA__cat">{n["category"]}</span><a href="#">{n["title"]}</a></div>'
-        for n in data("news.csv")[:6])
+        for n in sorted_news()[:6])
     mem = "".join(
         f'<figure><img src="../../assets/img/{m["photo"] or "person-1.svg"}" alt="" width="260" height="347">'
         f'<figcaption><b>{m["name"]}</b><span>{m["role"]}<br>{m["field"]}</span></figcaption></figure>'
@@ -254,7 +288,7 @@ def build_a():
     pubs = "".join(
         f'<div class="mA__pub"><time>{p["year"]}</time><p>{p["title"]}<i>{p["source"]}</i></p>'
         + ('<span class="mA__oa">OPEN ACCESS</span>' if p["oa"] == "yes" else "<span></span>")
-        + "</div>" for p in data("publications.csv")[:4])
+        + "</div>" for p in sorted_pubs()[:4])
     return f"""
 <main class="mA">
   <div class="mA__hd"><div class="mA__hdIn">
@@ -336,9 +370,9 @@ def build_a():
 # ---------------------------------------------------------------- 案B
 def build_b():
     ni = "".join(
-        f'<a class="mB__ni" href="#"><time>{n["date"].replace("-", ".")}</time>'
+        f'<a class="mB__ni" href="#"><time>{n["_disp"]}</time>'
         f'<span class="mB__tag">{n["category"]}</span><p>{n["title"]}</p></a>'
-        for n in data("news.csv")[:6])
+        for n in sorted_news()[:6])
     mem = "".join(
         f'<figure><img src="../../assets/img/{m["photo"] or "person-1.svg"}" alt="" width="260" height="347">'
         f'<figcaption><b>{m["name"]}</b><span>{m["role"]}<br>{m["field"]}</span></figcaption></figure>'
