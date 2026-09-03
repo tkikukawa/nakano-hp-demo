@@ -1,0 +1,43 @@
+# データやページを直して push すると、自動でサイトを作り直して公開する。
+# これがあるおかげで、パソコンに何もインストールしていない人でも
+# GitHubのブラウザ画面だけで更新できる。
+name: サイトを生成して公開
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'docs/**'      # 自動生成した結果の push では動かさない（無限ループ防止）
+      - 'README.md'
+  workflow_dispatch:   # 手動でも実行できるようにしておく
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリを取ってくる
+        uses: actions/checkout@v4
+
+      - name: Python を用意する
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: サイトを生成する
+        run: python build.py
+
+      - name: 変更があれば公開する
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          if git diff --staged --quiet; then
+            echo "変更なし。何もしません。"
+          else
+            git commit -m "サイトを自動生成 [skip ci]"
+            git push
+            echo "サイトを更新しました。"
+          fi
