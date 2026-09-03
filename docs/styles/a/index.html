@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>案A｜白・余白・端正｜サンプル研究室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=M+PLUS+2:wght@400;500;600;700&family=Murecho:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap">
+<style>
+/* 変数の定義（単体ページ用） */
+:root{--jp:"Noto Sans JP",system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+*{box-sizing:border-box}
+body{margin:0}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===================== 案A｜結晶方位 ===================== */
+.mA{
+  --a-bg:#F5F6F8; --a-paper:#FFFFFF; --a-ink:#0E1620; --a-mute:#59636F;
+  --a-accent:#0B3A6F; --a-line:#D5DAE1; --a-line2:#E7EAEF; --a-gold:#7E6224;
+  background:var(--a-bg);color:var(--a-ink);
+  font-family:"Noto Sans JP",var(--jp);font-size:17px;line-height:1.9;
+}
+.mA ::selection{background:#0B3A6F;color:#fff}
+.mA .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--a-mute)}
+
+/* ヘッダ */
+.mA__hd{background:var(--a-paper);border-bottom:1px solid var(--a-line)}
+.mA__hdIn{max-width:1160px;margin:0 auto;padding:20px 28px;display:flex;
+  align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.mA__logo{display:flex;flex-direction:column;gap:5px}
+.mA__logo b{font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-size:26px;font-weight:600;letter-spacing:.09em;line-height:1}
+.mA__logo span{font-size:11.5px;line-height:1.7;color:var(--a-mute);letter-spacing:.04em}
+.mA__nav{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+.mA__nav a{font-size:14px;text-decoration:none;color:var(--a-ink);padding-bottom:3px;
+  border-bottom:1px solid transparent;transition:border-color .18s,color .18s}
+.mA__nav a:hover{border-bottom-color:var(--a-accent);color:var(--a-accent)}
+.mA__nav a.en{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--a-mute)}
+
+/* ヒーロー */
+.mA__hero{background:var(--a-paper);border-bottom:1px solid var(--a-line);overflow:hidden}
+.mA__heroIn{max-width:1160px;margin:0 auto;padding:0 28px;
+  display:grid;grid-template-columns:1fr minmax(0,.86fr);gap:56px;align-items:center;min-height:460px}
+.mA__heroTx{padding:64px 0}
+.mA__kicker{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.mA__kicker i{display:block;width:44px;height:1px;background:var(--a-accent);flex:none}
+.mA__hero h1{font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-weight:600;
+  font-size:clamp(26px,3.6vw,47px);line-height:1.58;letter-spacing:.005em;margin:0 0 26px;text-wrap:balance}
+.mA__hero h1 em{font-style:normal;color:var(--a-accent);
+  border-bottom:2px solid var(--a-accent);padding-bottom:2px}
+.mA__hero p{font-size:15.5px;line-height:2.05;color:var(--a-mute);max-width:46ch;margin:0 0 30px}
+.mA__cta{display:flex;gap:12px;flex-wrap:wrap}
+.mA__btn{display:inline-block;text-decoration:none;font-size:14px;font-weight:500;padding:12px 26px;
+  border:1px solid var(--a-accent);color:var(--a-accent);background:transparent;transition:background .18s,color .18s}
+.mA__btn:hover{background:var(--a-accent);color:#fff}
+.mA__btn--fill{background:var(--a-accent);color:#fff}
+.mA__btn--fill:hover{background:#062A52;border-color:#062A52;color:#fff}
+.mA__heroFig{position:relative;align-self:stretch;display:flex;align-items:center}
+.mA__heroFig img{width:100%;border-left:1px solid var(--a-line)}
+
+/* 縦軸レール付きセクション */
+.mA__sec{max-width:1160px;margin:0 auto;padding:0 28px;
+  display:grid;grid-template-columns:78px minmax(0,1fr);gap:0;border-bottom:1px solid var(--a-line)}
+.mA__rail{border-right:1px solid var(--a-line);padding:64px 0 64px}
+.mA__railIn{position:sticky;top:74px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.mA__railJa{writing-mode:vertical-rl;font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-size:15px;font-weight:600;
+  letter-spacing:.42em;color:var(--a-ink);text-indent:.42em}
+.mA__railEn{writing-mode:vertical-rl;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--a-mute)}
+.mA__railIn::after{content:"";width:1px;height:56px;background:var(--a-accent);display:block}
+.mA__body{padding:64px 0 72px 40px;min-width:0}
+.mA__h2{font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-size:27px;font-weight:600;letter-spacing:.01em;
+  margin:0 0 8px;line-height:1.6}
+.mA__sub{font-size:14.5px;color:var(--a-mute);margin:0 0 38px;max-width:56ch;line-height:1.95}
+
+/* 3本柱 */
+.mA__pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:0;
+  border-top:1px solid var(--a-line2)}
+.mA__pil{padding:28px 26px 30px 0;border-bottom:1px solid var(--a-line2)}
+.mA__pil+.mA__pil{padding-left:26px;border-left:1px solid var(--a-line2)}
+.mA__pil h3{font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-size:17.5px;font-weight:600;margin:12px 0 10px;line-height:1.65}
+.mA__pil p{font-size:13.5px;line-height:1.95;color:var(--a-mute);margin:0}
+
+/* 数値 */
+.mA__stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px;
+  margin:0 0 44px;padding:26px 0;border-top:1px solid var(--a-line);border-bottom:1px solid var(--a-line)}
+.mA__stat b{display:block;font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-size:38px;font-weight:600;
+  line-height:1.15;color:var(--a-accent);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.mA__stat b sub{font-size:15px;font-weight:500;vertical-align:baseline;margin-left:3px;letter-spacing:.06em}
+.mA__stat span{display:block;font-size:12.5px;line-height:1.7;color:var(--a-mute);margin-top:7px}
+
+/* 論文リスト */
+.mA__pubs{border-top:1px solid var(--a-line2)}
+.mA__pub{display:grid;grid-template-columns:88px minmax(0,1fr) auto;gap:24px;align-items:baseline;
+  padding:17px 0;border-bottom:1px solid var(--a-line2)}
+.mA__pub time{font-family:var(--mono);font-size:12px;color:var(--a-mute);font-variant-numeric:tabular-nums}
+.mA__pub p{margin:0;font-size:14.5px;line-height:1.75}
+.mA__pub p i{display:block;font-style:normal;font-weight:500;font-size:13px;color:var(--a-mute);margin-top:3px;letter-spacing:.01em}
+.mA__oa{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--a-gold);
+  border:1px solid var(--a-gold);padding:2px 7px;white-space:nowrap;align-self:center}
+
+/* 最新情報 */
+.mA__news{border-top:1px solid var(--a-line2)}
+.mA__ni{display:grid;grid-template-columns:104px 84px minmax(0,1fr);gap:18px;align-items:baseline;
+  padding:16px 0;border-bottom:1px solid var(--a-line2)}
+.mA__ni time{font-family:var(--mono);font-size:12.5px;color:var(--a-mute);font-variant-numeric:tabular-nums}
+.mA__cat{font-size:11.5px;letter-spacing:.08em;color:var(--a-accent);border:1px solid var(--a-line);
+  padding:2px 0;text-align:center;background:var(--a-paper)}
+.mA__ni a{font-size:14.5px;text-decoration:none;line-height:1.75;
+  border-bottom:1px solid transparent;transition:border-color .18s}
+.mA__ni a:hover{border-bottom-color:var(--a-ink)}
+
+/* メンバー */
+.mA__mem{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:30px 26px}
+.mA__mem figure{margin:0}
+.mA__mem img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:grayscale(.28) contrast(1.03);
+  border:1px solid var(--a-line)}
+.mA__mem figcaption{margin-top:11px}
+.mA__mem b{display:block;font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-size:16px;font-weight:600;letter-spacing:.06em}
+.mA__mem span{display:block;font-size:12px;color:var(--a-mute);line-height:1.65;margin-top:2px}
+.mA__memMore{margin:30px 0 0;font-size:13.5px;color:var(--a-mute)}
+
+/* フッタ */
+.mA__ft{background:var(--a-accent);color:#EAF0F7}
+.mA__ftIn{max-width:1160px;margin:0 auto;padding:52px 28px 34px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:34px}
+.mA__ft h4{font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-size:15px;font-weight:600;letter-spacing:.14em;
+  margin:0 0 14px;color:#fff}
+.mA__ft p,.mA__ft li{font-size:13px;line-height:1.95;color:#C3D2E4;margin:0}
+.mA__ft ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px}
+.mA__ft a{color:#C3D2E4;text-decoration:none;border-bottom:1px solid rgba(195,210,228,.32)}
+.mA__ft a:hover{color:#fff;border-bottom-color:#fff}
+.mA__copy{max-width:1160px;margin:0 auto;padding:16px 28px 30px;
+  border-top:1px solid rgba(255,255,255,.16);font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.1em;color:#94ADC9}
+@media (max-width:880px){
+  .mA__heroIn{grid-template-columns:1fr;gap:0;min-height:0}
+  .mA__heroTx{padding:48px 0 36px}
+  .mA__heroFig img{border-left:0;border-top:1px solid var(--a-line)}
+  .mA__sec{grid-template-columns:1fr}
+  .mA__rail{border-right:0;border-bottom:1px solid var(--a-line2);padding:34px 0 0}
+  .mA__railIn{flex-direction:row;position:static;gap:12px;align-items:baseline}
+  .mA__railJa,.mA__railEn{writing-mode:horizontal-tb;text-indent:0}
+  .mA__railJa{letter-spacing:.24em}
+  .mA__railIn::after{height:1px;width:40px}
+  .mA__body{padding:26px 0 56px}
+  .mA__pil+.mA__pil{padding-left:0;border-left:0}
+  .mA__pub{grid-template-columns:1fr;gap:6px}
+  .mA__ni{grid-template-columns:96px 78px;row-gap:6px}
+  .mA__ni a{grid-column:1/-1}
+}
+
+.demo{background:#8A5A12;color:#fff;font-size:12px;text-align:center;padding:7px 16px;line-height:1.6;
+  font-family:"Noto Sans JP",system-ui,sans-serif}
+.swbar{background:#12181F;color:#C9D2DE;font-size:12px;line-height:1.6;
+  font-family:"Noto Sans JP",system-ui,sans-serif;
+  padding:8px 16px;display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+.swbar b{font-weight:600;color:#8A98AA;font-size:11px;letter-spacing:.08em;margin-right:4px}
+.swbar a{color:#C9D2DE;text-decoration:none;border:1px solid #2C3745;border-radius:2px;
+  padding:5px 12px;transition:background .15s,border-color .15s,color .15s}
+.swbar a:hover{background:#1D2733;border-color:#4A5A6E;color:#fff}
+.swbar a[aria-current="true"]{background:#fff;border-color:#fff;color:#12181F;font-weight:700}
+
+</style>
+</head>
+<body>
+<div class="demo">これは研究室サイトの構成デモです。文章・氏名・業績はすべて架空のサンプルで、実在の研究室の情報は含まれていません。</div>
+<div class="swbar"><b>DESIGN</b><a href="../../">現行デザイン</a><a href="../../styles/c/">案C 青・情報密度</a><a href="../../styles/a/" aria-current="true">案A 白・余白</a><a href="../../styles/b/">案B ダーク</a><a href="../../styles/">見比べ一覧</a></div>
+
+<main class="mA">
+  <div class="mA__hd"><div class="mA__hdIn">
+    <div class="mA__logo"><b>サンプル研究室</b><span>◯◯大学大学院工学研究科　マテリアル工学専攻</span></div>
+    <nav class="mA__nav"><a href="#">研究内容</a><a href="#">メンバー</a><a href="#">研究業績</a>
+      <a href="#">研究設備</a><a href="#">問い合わせ</a><a href="#" class="en">English</a></nav>
+  </div></div>
+
+  <div class="mA__hero"><div class="mA__heroIn">
+    <div class="mA__heroTx">
+      <p class="mA__kicker"><i></i><span class="lbl">Sample Laboratory</span></p>
+      <h1>ここに研究室の<br><em>キャッチコピー</em>が入る。</h1>
+      <p>リード文が2〜3行入ります。研究室が何を目指し、どんな手法で取り組んでいるかを簡潔に書く場所です。</p>
+      <div class="mA__cta"><a class="mA__btn mA__btn--fill" href="#">研究内容を見る</a>
+        <a class="mA__btn" href="#">研究室訪問について</a></div>
+    </div>
+    <figure class="mA__heroFig" style="margin:0"><img src="../../assets/img/fig-grain.png" alt="" width="760" height="428"></figure>
+  </div></div>
+
+  <section class="mA__sec">
+    <div class="mA__rail"><div class="mA__railIn"><span class="mA__railJa">研究内容</span><span class="mA__railEn">Research</span></div></div>
+    <div class="mA__body">
+      <h2 class="mA__h2">3つの柱</h2>
+      <p class="mA__sub">ここに研究の概要が入ります。見出しの下に2〜3行、全体像がつかめる文章を置きます。</p>
+      <div class="mA__pillars">
+        <div class="mA__pil"><span class="lbl">Theme 01</span><h3>研究テーマの見出し</h3><p>ここにテーマの説明が3〜5行入ります。</p></div>
+        <div class="mA__pil"><span class="lbl">Theme 02</span><h3>研究テーマの見出し</h3><p>ここにテーマの説明が3〜5行入ります。</p></div>
+        <div class="mA__pil"><span class="lbl">Theme 03</span><h3>研究テーマの見出し</h3><p>ここにテーマの説明が3〜5行入ります。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mA__sec">
+    <div class="mA__rail"><div class="mA__railIn"><span class="mA__railJa">研究業績</span><span class="mA__railEn">Publications</span></div></div>
+    <div class="mA__body">
+      <h2 class="mA__h2">研究業績</h2>
+      <p class="mA__sub">論文・受賞・学会発表を1つのデータから生成しています。</p>
+      <div class="mA__stats">
+        <div class="mA__stat"><b>1,234<sub>件</sub></b><span>ここに実績の数字が入ります</span></div>
+        <div class="mA__stat"><b>12<sub>賞</sub></b><span>受賞歴の件数など</span></div>
+        <div class="mA__stat"><b>34<sub>名</sub></b><span>教員・研究員・事務スタッフ</span></div>
+        <div class="mA__stat"><b>2007<sub>年度〜</sub></b><span>卒業生アーカイブを継続公開</span></div>
+      </div>
+      <div class="mA__pubs"><div class="mA__pub"><time>2026</time><p>積層造形したチタン合金における結晶配向性の制御<i>Journal of Sample Materials（IF 0.0）</i></p><span class="mA__oa">OPEN ACCESS</span></div><div class="mA__pub"><time>2026</time><p>結晶方位を考慮した触媒材料の設計<i>Sample Chemistry Letters</i></p><span></span></div><div class="mA__pub"><time>2026</time><p>鉄鋼材料における層状組織の均質化手法<i>Sample Steel International</i></p><span></span></div><div class="mA__pub"><time>2026</time><p>佐藤 次郎｜奨励賞（研究部門）<i>第◯回 サンプル材料学会 講演大会</i></p><span></span></div></div>
+    </div>
+  </section>
+
+  <section class="mA__sec">
+    <div class="mA__rail"><div class="mA__railIn"><span class="mA__railJa">最新情報</span><span class="mA__railEn">News</span></div></div>
+    <div class="mA__body">
+      <h2 class="mA__h2">最新情報</h2>
+      <p class="mA__sub">受賞・論文掲載・報道・行事などをお知らせします。</p>
+      <div class="mA__news"><div class="mA__ni"><time>2026.09.02</time><span class="mA__cat">新聞</span><a href="#">（サンプル）研究室の取り組みが業界紙に掲載されました。ここには実際のニュース本文が入ります。</a></div><div class="mA__ni"><time>2026.09.01</time><span class="mA__cat">受賞</span><a href="#">（サンプル）国内学会の講演大会にて、当研究室の学生が奨励賞を受賞しました。</a></div><div class="mA__ni"><time>2026.09.01</time><span class="mA__cat">論文</span><a href="#">（サンプル）国際誌に、積層造形材の結晶配向性制御に関する論文が掲載されました。</a></div><div class="mA__ni"><time>2026.08.28</time><span class="mA__cat">学会</span><a href="#">（サンプル）第◯回材料科学シンポジウムに参加し、5件の発表を行いました。</a></div><div class="mA__ni"><time>2026.08.24</time><span class="mA__cat">視察</span><a href="#">（サンプル）企業の皆様が当研究室の設備をご視察されました。</a></div><div class="mA__ni"><time>2026.08.23</time><span class="mA__cat">論文</span><a href="#">（サンプル）鉄鋼材料の組織制御に関する論文が国内誌に掲載されました。</a></div></div>
+    </div>
+  </section>
+
+  <section class="mA__sec">
+    <div class="mA__rail"><div class="mA__railIn"><span class="mA__railJa">メンバー</span><span class="mA__railEn">Members</span></div></div>
+    <div class="mA__body">
+      <h2 class="mA__h2">メンバー</h2>
+      <p class="mA__sub">教員・研究員・事務スタッフと、博士・修士・学部の学生が在籍しています。</p>
+      <div class="mA__mem"><figure><img src="../../assets/img/person-1.svg" alt="" width="260" height="347"><figcaption><b>山田 太郎</b><span>教授<br>材料組織学、結晶塑性学</span></figcaption></figure><figure><img src="../../assets/img/person-2.svg" alt="" width="260" height="347"><figcaption><b>鈴木 花子</b><span>准教授<br>生体材料学、細胞生物学</span></figcaption></figure><figure><img src="../../assets/img/person-3.svg" alt="" width="260" height="347"><figcaption><b>佐藤 次郎</b><span>講師<br>積層造形材料学</span></figcaption></figure><figure><img src="../../assets/img/person-4.svg" alt="" width="260" height="347"><figcaption><b>Alex Sample</b><span>助教<br>計算材料科学</span></figcaption></figure><figure><img src="../../assets/img/person-5.svg" alt="" width="260" height="347"><figcaption><b>田中 三郎</b><span>助教<br>材料評価学</span></figcaption></figure></div>
+    </div>
+  </section>
+
+  <footer class="mA__ft">
+    <div class="mA__ftIn">
+      <div><h4>サンプル研究室</h4><p>◯◯大学大学院工学研究科　マテリアル工学専攻</p></div>
+      <div><h4>連絡先</h4><p>〒000-0000　◯◯県◯◯市◯◯1-1<br>◯◯棟◯階　◯◯◯号室<br>TEL / FAX　00-0000-0000</p></div>
+      <div><h4>アクセス</h4><p>◯◯線 ◯◯駅から徒歩約15分<br>◯◯モノレール ◯◯駅から徒歩約15分</p></div>
+      <div><h4>関連リンク</h4><ul><li><a href="#">◯◯大学</a></li><li><a href="#">大学院工学研究科</a></li><li><a href="#">マテリアル工学専攻</a></li></ul></div>
+    </div>
+    <div class="mA__copy">© Sample Laboratory</div>
+  </footer>
+</main>
+
+</body>
+</html>

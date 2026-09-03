@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>デザイン候補｜サンプル研究室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=M+PLUS+2:wght@400;500;600;700&family=Murecho:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap"><style>
+:root{--ink:#16202E;--mute:#5B6678;--line:#DCE2EC;--bg:#F6F8FB;--brand:#003399;--paper:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Noto Sans JP",system-ui,sans-serif;font-size:16px;line-height:1.85}
+img{display:block;max-width:100%}
+.wrap{max-width:1000px;margin:0 auto;padding:52px 26px 80px}
+h1{font-family:"Murecho","Noto Sans JP",sans-serif;font-size:clamp(24px,3.4vw,34px);
+  font-weight:700;margin:0 0 14px;line-height:1.45}
+.lead{color:var(--mute);font-size:15px;max-width:62ch;margin:0 0 12px}
+.note{color:var(--mute);font-size:13.5px;max-width:66ch;margin:0 0 36px}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.item{background:var(--paper);border:1px solid var(--line);border-radius:3px;
+  padding:22px;display:flex;flex-direction:column;gap:11px}
+.item h2{font-size:18px;font-weight:700;margin:0;line-height:1.5}
+.item p{font-size:13.5px;line-height:1.85;color:var(--mute);margin:0;flex:1}
+.item a{align-self:flex-start;text-decoration:none;font-size:13.5px;font-weight:700;
+  padding:10px 20px;border-radius:2px;background:var(--brand);color:#fff}
+.item a:hover{background:#00246B}
+.sw{display:flex;height:24px;border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.sw i{flex:1}
+
+.demo{background:#8A5A12;color:#fff;font-size:12px;text-align:center;padding:7px 16px;line-height:1.6;
+  font-family:"Noto Sans JP",system-ui,sans-serif}
+.swbar{background:#12181F;color:#C9D2DE;font-size:12px;line-height:1.6;
+  font-family:"Noto Sans JP",system-ui,sans-serif;
+  padding:8px 16px;display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+.swbar b{font-weight:600;color:#8A98AA;font-size:11px;letter-spacing:.08em;margin-right:4px}
+.swbar a{color:#C9D2DE;text-decoration:none;border:1px solid #2C3745;border-radius:2px;
+  padding:5px 12px;transition:background .15s,border-color .15s,color .15s}
+.swbar a:hover{background:#1D2733;border-color:#4A5A6E;color:#fff}
+.swbar a[aria-current="true"]{background:#fff;border-color:#fff;color:#12181F;font-weight:700}
+</style></head>
+<body>
+<div class="demo">これは研究室サイトの構成デモです。文章・氏名・業績はすべて架空のサンプルで、実在の研究室の情報は含まれていません。</div>
+<div class="swbar"><b>DESIGN</b><a href="../">現行デザイン</a><a href="../styles/c/">案C 青・情報密度</a><a href="../styles/a/">案A 白・余白</a><a href="../styles/b/">案B ダーク</a><a href="../styles/" aria-current="true">見比べ一覧</a></div>
+<div class="wrap">
+  <h1>デザイン候補</h1>
+  <p class="lead">同じ中身のまま、見た目だけを差し替えた3案です。中身（文章・写真・業績データ）は
+  <b>data/</b> と <b>pages/</b> に1か所でまとめてあるので、どれを選んでも作り直しにはなりません。</p>
+  <p class="note">サイト本体（現行デザインの再現）は上の「現行デザイン」から。
+  いずれもCMSを使わない素のHTMLとCSSだけで動いていて、サーバー費用は0円です。</p>
+  <div class="grid">
+    <article class="item">
+      <h2>案C｜青・情報密度</h2>
+      <div class="sw" aria-hidden="true"><i style="background:#003399"></i><i style="background:#3584BB"></i><i style="background:#EAF1FF"></i><i style="background:#F6F8FB"></i><i style="background:#1A2130"></i></div>
+      <p>現行の青（#003399）を引き継ぎ、2カラムの情報量が多い構成を今風に組み直したもの。右の「ピックアップ」欄は現行サイトのバナー列にあたります。</p>
+      <a href="c/">開く</a>
+    </article>
+    <article class="item">
+      <h2>案A｜白・余白・端正</h2>
+      <div class="sw" aria-hidden="true"><i style="background:#F5F6F8"></i><i style="background:#FFFFFF"></i><i style="background:#0B3A6F"></i><i style="background:#7E6224"></i><i style="background:#0E1620"></i></div>
+      <p>白地に細い罫線と大きな余白。装飾を使わず、文字組みと余白で品を出す方向。</p>
+      <a href="a/">開く</a>
+    </article>
+    <article class="item">
+      <h2>案B｜ダーク・写真主導</h2>
+      <div class="sw" aria-hidden="true"><i style="background:#0E1114"></i><i style="background:#161A1F"></i><i style="background:#EEF0F3"></i><i style="background:#8FB3D9"></i><i style="background:#98A2AD"></i></div>
+      <p>ほぼモノクロで組み、色は写真だけが持つ。大きな見出しで迫力を出す方向。</p>
+      <a href="b/">開く</a>
+    </article></div>
+</div>
+</body></html>

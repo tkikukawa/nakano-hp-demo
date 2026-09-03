@@ -1,0 +1,144 @@
+/* 変数の定義（単体ページ用） */
+:root{--jp:"Noto Sans JP",system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+*{box-sizing:border-box}
+body{margin:0}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===================== 案A｜結晶方位 ===================== */
+.mA{
+  --a-bg:#F5F6F8; --a-paper:#FFFFFF; --a-ink:#0E1620; --a-mute:#59636F;
+  --a-accent:#0B3A6F; --a-line:#D5DAE1; --a-line2:#E7EAEF; --a-gold:#7E6224;
+  background:var(--a-bg);color:var(--a-ink);
+  font-family:"Noto Sans JP",var(--jp);font-size:17px;line-height:1.9;
+}
+.mA ::selection{background:#0B3A6F;color:#fff}
+.mA .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--a-mute)}
+
+/* ヘッダ */
+.mA__hd{background:var(--a-paper);border-bottom:1px solid var(--a-line)}
+.mA__hdIn{max-width:1160px;margin:0 auto;padding:20px 28px;display:flex;
+  align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.mA__logo{display:flex;flex-direction:column;gap:5px}
+.mA__logo b{font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-size:26px;font-weight:600;letter-spacing:.09em;line-height:1}
+.mA__logo span{font-size:11.5px;line-height:1.7;color:var(--a-mute);letter-spacing:.04em}
+.mA__nav{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+.mA__nav a{font-size:14px;text-decoration:none;color:var(--a-ink);padding-bottom:3px;
+  border-bottom:1px solid transparent;transition:border-color .18s,color .18s}
+.mA__nav a:hover{border-bottom-color:var(--a-accent);color:var(--a-accent)}
+.mA__nav a.en{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--a-mute)}
+
+/* ヒーロー */
+.mA__hero{background:var(--a-paper);border-bottom:1px solid var(--a-line);overflow:hidden}
+.mA__heroIn{max-width:1160px;margin:0 auto;padding:0 28px;
+  display:grid;grid-template-columns:1fr minmax(0,.86fr);gap:56px;align-items:center;min-height:460px}
+.mA__heroTx{padding:64px 0}
+.mA__kicker{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.mA__kicker i{display:block;width:44px;height:1px;background:var(--a-accent);flex:none}
+.mA__hero h1{font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-weight:600;
+  font-size:clamp(26px,3.6vw,47px);line-height:1.58;letter-spacing:.005em;margin:0 0 26px;text-wrap:balance}
+.mA__hero h1 em{font-style:normal;color:var(--a-accent);
+  border-bottom:2px solid var(--a-accent);padding-bottom:2px}
+.mA__hero p{font-size:15.5px;line-height:2.05;color:var(--a-mute);max-width:46ch;margin:0 0 30px}
+.mA__cta{display:flex;gap:12px;flex-wrap:wrap}
+.mA__btn{display:inline-block;text-decoration:none;font-size:14px;font-weight:500;padding:12px 26px;
+  border:1px solid var(--a-accent);color:var(--a-accent);background:transparent;transition:background .18s,color .18s}
+.mA__btn:hover{background:var(--a-accent);color:#fff}
+.mA__btn--fill{background:var(--a-accent);color:#fff}
+.mA__btn--fill:hover{background:#062A52;border-color:#062A52;color:#fff}
+.mA__heroFig{position:relative;align-self:stretch;display:flex;align-items:center}
+.mA__heroFig img{width:100%;border-left:1px solid var(--a-line)}
+
+/* 縦軸レール付きセクション */
+.mA__sec{max-width:1160px;margin:0 auto;padding:0 28px;
+  display:grid;grid-template-columns:78px minmax(0,1fr);gap:0;border-bottom:1px solid var(--a-line)}
+.mA__rail{border-right:1px solid var(--a-line);padding:64px 0 64px}
+.mA__railIn{position:sticky;top:74px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.mA__railJa{writing-mode:vertical-rl;font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-size:15px;font-weight:600;
+  letter-spacing:.42em;color:var(--a-ink);text-indent:.42em}
+.mA__railEn{writing-mode:vertical-rl;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--a-mute)}
+.mA__railIn::after{content:"";width:1px;height:56px;background:var(--a-accent);display:block}
+.mA__body{padding:64px 0 72px 40px;min-width:0}
+.mA__h2{font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-size:27px;font-weight:600;letter-spacing:.01em;
+  margin:0 0 8px;line-height:1.6}
+.mA__sub{font-size:14.5px;color:var(--a-mute);margin:0 0 38px;max-width:56ch;line-height:1.95}
+
+/* 3本柱 */
+.mA__pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:0;
+  border-top:1px solid var(--a-line2)}
+.mA__pil{padding:28px 26px 30px 0;border-bottom:1px solid var(--a-line2)}
+.mA__pil+.mA__pil{padding-left:26px;border-left:1px solid var(--a-line2)}
+.mA__pil h3{font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-size:17.5px;font-weight:600;margin:12px 0 10px;line-height:1.65}
+.mA__pil p{font-size:13.5px;line-height:1.95;color:var(--a-mute);margin:0}
+
+/* 数値 */
+.mA__stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px;
+  margin:0 0 44px;padding:26px 0;border-top:1px solid var(--a-line);border-bottom:1px solid var(--a-line)}
+.mA__stat b{display:block;font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-size:38px;font-weight:600;
+  line-height:1.15;color:var(--a-accent);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.mA__stat b sub{font-size:15px;font-weight:500;vertical-align:baseline;margin-left:3px;letter-spacing:.06em}
+.mA__stat span{display:block;font-size:12.5px;line-height:1.7;color:var(--a-mute);margin-top:7px}
+
+/* 論文リスト */
+.mA__pubs{border-top:1px solid var(--a-line2)}
+.mA__pub{display:grid;grid-template-columns:88px minmax(0,1fr) auto;gap:24px;align-items:baseline;
+  padding:17px 0;border-bottom:1px solid var(--a-line2)}
+.mA__pub time{font-family:var(--mono);font-size:12px;color:var(--a-mute);font-variant-numeric:tabular-nums}
+.mA__pub p{margin:0;font-size:14.5px;line-height:1.75}
+.mA__pub p i{display:block;font-style:normal;font-weight:500;font-size:13px;color:var(--a-mute);margin-top:3px;letter-spacing:.01em}
+.mA__oa{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--a-gold);
+  border:1px solid var(--a-gold);padding:2px 7px;white-space:nowrap;align-self:center}
+
+/* 最新情報 */
+.mA__news{border-top:1px solid var(--a-line2)}
+.mA__ni{display:grid;grid-template-columns:104px 84px minmax(0,1fr);gap:18px;align-items:baseline;
+  padding:16px 0;border-bottom:1px solid var(--a-line2)}
+.mA__ni time{font-family:var(--mono);font-size:12.5px;color:var(--a-mute);font-variant-numeric:tabular-nums}
+.mA__cat{font-size:11.5px;letter-spacing:.08em;color:var(--a-accent);border:1px solid var(--a-line);
+  padding:2px 0;text-align:center;background:var(--a-paper)}
+.mA__ni a{font-size:14.5px;text-decoration:none;line-height:1.75;
+  border-bottom:1px solid transparent;transition:border-color .18s}
+.mA__ni a:hover{border-bottom-color:var(--a-ink)}
+
+/* メンバー */
+.mA__mem{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:30px 26px}
+.mA__mem figure{margin:0}
+.mA__mem img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:grayscale(.28) contrast(1.03);
+  border:1px solid var(--a-line)}
+.mA__mem figcaption{margin-top:11px}
+.mA__mem b{display:block;font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-size:16px;font-weight:600;letter-spacing:.06em}
+.mA__mem span{display:block;font-size:12px;color:var(--a-mute);line-height:1.65;margin-top:2px}
+.mA__memMore{margin:30px 0 0;font-size:13.5px;color:var(--a-mute)}
+
+/* フッタ */
+.mA__ft{background:var(--a-accent);color:#EAF0F7}
+.mA__ftIn{max-width:1160px;margin:0 auto;padding:52px 28px 34px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:34px}
+.mA__ft h4{font-family:"M PLUS 2","Noto Sans JP",sans-serif;font-size:15px;font-weight:600;letter-spacing:.14em;
+  margin:0 0 14px;color:#fff}
+.mA__ft p,.mA__ft li{font-size:13px;line-height:1.95;color:#C3D2E4;margin:0}
+.mA__ft ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px}
+.mA__ft a{color:#C3D2E4;text-decoration:none;border-bottom:1px solid rgba(195,210,228,.32)}
+.mA__ft a:hover{color:#fff;border-bottom-color:#fff}
+.mA__copy{max-width:1160px;margin:0 auto;padding:16px 28px 30px;
+  border-top:1px solid rgba(255,255,255,.16);font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.1em;color:#94ADC9}
+@media (max-width:880px){
+  .mA__heroIn{grid-template-columns:1fr;gap:0;min-height:0}
+  .mA__heroTx{padding:48px 0 36px}
+  .mA__heroFig img{border-left:0;border-top:1px solid var(--a-line)}
+  .mA__sec{grid-template-columns:1fr}
+  .mA__rail{border-right:0;border-bottom:1px solid var(--a-line2);padding:34px 0 0}
+  .mA__railIn{flex-direction:row;position:static;gap:12px;align-items:baseline}
+  .mA__railJa,.mA__railEn{writing-mode:horizontal-tb;text-indent:0}
+  .mA__railJa{letter-spacing:.24em}
+  .mA__railIn::after{height:1px;width:40px}
+  .mA__body{padding:26px 0 56px}
+  .mA__pil+.mA__pil{padding-left:0;border-left:0}
+  .mA__pub{grid-template-columns:1fr;gap:6px}
+  .mA__ni{grid-template-columns:96px 78px;row-gap:6px}
+  .mA__ni a{grid-column:1/-1}
+}

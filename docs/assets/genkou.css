@@ -1,0 +1,148 @@
+@charset "utf-8";
+/* ============================================================
+   現行デザイン再現テーマ
+
+   いまの研究室サイト（2011年ごろの作り）の見た目を、
+   CMSを使わない素のHTML＋CSSだけで再現したもの。
+   ねらい：デザインを1ミリも変えなくても、CMSと保守契約は外せると示すこと。
+
+   色を変えたいときは、すぐ下の :root の中の値だけを直せば
+   サイト全体の色が一度に変わります。
+   ============================================================ */
+:root{
+  --blue:#003399;      /* 基本の青 */
+  --blue-d:#001F5C;    /* 濃い青（見出しの縁など） */
+  --blue-l:#3584BB;    /* 明るい青（副色） */
+  --tint:#EBF6FF;      /* 淡い青（背景の塗り） */
+  --tint2:#E3E9EF;     /* 見出しの帯 */
+  --ink:#333333;       /* 本文の文字色 */
+  --line:#CCCCCC;      /* 枠線 */
+  --line2:#DDDDDD;     /* 薄い区切り線 */
+}
+*{box-sizing:border-box}
+body{margin:0;background:#FFFFFF;color:var(--ink);
+  font-family:"メイリオ",Meiryo,"ヒラギノ角ゴ Pro W3","ＭＳ Ｐゴシック",sans-serif;
+  font-size:12px;line-height:1.6}
+img{display:block;max-width:100%;border:0}
+a{color:#0044CC}
+a:hover{color:#CC0000}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:8px;top:8px;z-index:99;background:var(--blue);color:#fff;padding:8px 14px}
+
+/* ---- [header] ヘッダ（青のグラデーション） ---- */
+.gh{background:linear-gradient(180deg,#2E6FC0 0%,#12489C 45%,#003399 100%);
+  border-bottom:3px solid var(--blue-d)}
+.gh__in{width:940px;margin:0 auto;padding:12px 10px;display:flex;
+  align-items:center;justify-content:space-between;gap:16px}
+.gh__logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+.gh__logo:hover{color:#fff}
+.gh__mark{width:44px;height:44px;border:2px solid #fff;border-radius:50%;
+  display:grid;place-items:center;font-size:13px;font-weight:bold;flex:none}
+.gh__logo b{display:block;font-size:20px;letter-spacing:.06em;line-height:1.2}
+.gh__logo span{display:block;font-size:10px;line-height:1.5;color:#C9DBF5;margin-top:3px}
+.gh__util{display:flex;align-items:center;gap:8px}
+.gh__search{border:1px solid #7FA0CE;background:#fff;padding:3px 6px;font-size:11px;width:150px}
+.gh__btn{background:#0A2E73;border:1px solid #6E8FC4;color:#fff;font-size:11px;
+  padding:4px 10px;text-decoration:none}
+.gh__btn:hover{background:#154196;color:#fff}
+
+/* ---- 3カラムの骨組み ---- */
+.gwrap{width:940px;margin:0 auto;padding:12px 10px 30px;display:grid;
+  grid-template-columns:180px 1fr 200px;gap:14px;align-items:start}
+
+/* ---- [nav] 左メニュー ---- */
+.gnav{border:1px solid var(--line)}
+.gnav a{display:block;padding:8px 10px 8px 20px;font-size:12px;text-decoration:none;
+  color:var(--ink);background:#F7F9FC url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='8'%3E%3Cpath d='M0 0l6 4-6 4z' fill='%23003399'/%3E%3C/svg%3E") no-repeat 8px 11px;
+  border-bottom:1px solid var(--line2);line-height:1.45}
+.gnav a:last-child{border-bottom:0}
+.gnav a:hover{background-color:var(--tint);color:var(--blue)}
+.gnav a[aria-current="page"]{background-color:var(--blue);color:#fff;font-weight:bold}
+
+/* ---- 本文 ---- */
+.gmain{min-width:0}
+.gmain h1{font-size:15px;color:#fff;background:var(--blue);margin:0 0 12px;
+  padding:7px 10px;border-left:5px solid var(--blue-d);line-height:1.4}
+.gmain h2,.gmain .h2{font-size:13px;color:var(--blue);margin:20px 0 8px;padding:5px 8px;
+  background:var(--tint2);border-left:4px solid var(--blue);line-height:1.5;
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.gmain .h2 b{font-weight:bold}
+.gmain .h2 a{font-size:11px;font-weight:normal}
+.gmain h3{font-size:12px;color:var(--blue-d);margin:12px 0 5px;line-height:1.5}
+.gmain p{margin:0 0 12px}
+.gmain .lead{margin:0 0 14px}
+.gmain code{font-family:Consolas,monospace;background:#F3F3F3;border:1px solid var(--line2);
+  padding:1px 4px;font-size:11px}
+.gmore{text-align:right;font-size:11px;margin:6px 0 16px}
+
+/* ---- [news] 最新情報 ---- */
+.gnews{border:1px solid var(--line);border-bottom:0}
+.gnews a{display:block;padding:6px 9px;border-bottom:1px solid var(--line2);
+  text-decoration:none;color:var(--ink);font-size:12px;line-height:1.6}
+.gnews a:hover{background:var(--tint);color:var(--ink)}
+.gnews time{color:#666;margin-right:10px;font-weight:bold}
+.gnews em{font-style:normal;background:var(--blue);color:#fff;font-size:10px;
+  padding:1px 6px;margin-right:8px;white-space:nowrap}
+
+/* ---- 表（業績・メンバー・設備など） ---- */
+.gtbl{width:100%;border-collapse:collapse;font-size:12px;margin:0 0 14px}
+.gtbl th,.gtbl td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.gtbl th{background:var(--tint2);color:var(--blue);white-space:nowrap;font-weight:bold}
+.gtbl thead th{text-align:center}
+.gtbl .src{color:#666;font-size:11px}
+.gtbl .oa{background:#FBF0DC;color:#8A5A12;font-size:10px;padding:1px 5px;white-space:nowrap}
+.gtbl--mem td.mphoto{width:60px;padding:4px}
+.gtbl--mem td.mphoto img{width:52px;height:auto;border:1px solid var(--line)}
+.gtbl--mem td.mphoto .noimg{display:grid;place-items:center;width:52px;height:69px;
+  background:var(--tint);border:1px solid var(--line);color:var(--blue-l);font-size:10px}
+.scroll{overflow-x:auto}
+
+/* ---- 図版の並び ---- */
+.gfigs{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-start;margin:0 0 14px}
+.gfigs img{width:180px;height:auto;border:1px solid var(--line)}
+
+/* ---- pages/ の断片で使うカード（現行風に地味に見せる） ---- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin:0 0 14px}
+.card{border:1px solid var(--line);background:#FCFDFF;display:flex;flex-direction:column;
+  text-decoration:none;color:var(--ink)}
+.card:hover{border-color:var(--blue-l);color:var(--ink)}
+.card__fig{overflow:hidden;background:var(--tint);aspect-ratio:16/9}
+.card__fig img{width:100%;height:100%;object-fit:cover}
+.card__body{padding:8px 9px 10px}
+.card__body h3{margin:0 0 4px;font-size:12px;color:var(--blue-d)}
+.card__body p{margin:0;font-size:11px;line-height:1.65;color:#555}
+.mono{display:block;font-size:10px;color:var(--blue-l);letter-spacing:.1em;margin-bottom:2px}
+
+/* ---- [sidebar] 右のバナー欄 ---- */
+.gside{display:flex;flex-direction:column;gap:8px}
+.gban{display:block;border:1px solid var(--line);background:var(--tint);
+  color:var(--blue);text-decoration:none;font-size:11px;line-height:1.45;
+  padding:10px 9px;text-align:center;font-weight:bold}
+.gban:hover{background:#DCEBFB;color:var(--blue-d)}
+.gcount{border:1px solid var(--line);padding:8px;text-align:center;font-size:11px;color:#666}
+.gcount b{display:block;font-size:16px;color:#CC0000;letter-spacing:.08em;margin-top:3px}
+
+/* ---- [footer] フッタ ---- */
+.gf{border-top:3px solid var(--blue);background:var(--tint2)}
+.gf__in{width:940px;margin:0 auto;padding:12px 10px;font-size:11px;color:#555;text-align:center}
+.gf__in p{margin:0 0 4px}
+.gf__in p:last-child{margin:0}
+
+/* ---- デモ用の帯（本番では削除する） ---- */
+.demo{background:#8A5A12;color:#fff;font-size:12px;text-align:center;padding:7px 16px;line-height:1.6}
+.swbar{background:#12181F;color:#C9D2DE;font-size:12px;line-height:1.6;
+  padding:8px 16px;display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+.swbar b{font-weight:600;color:#8A98AA;font-size:11px;letter-spacing:.08em;margin-right:4px}
+.swbar a{color:#C9D2DE;text-decoration:none;border:1px solid #2C3745;border-radius:2px;
+  padding:5px 12px;transition:background .15s,border-color .15s,color .15s}
+.swbar a:hover{background:#1D2733;border-color:#4A5A6E;color:#fff}
+.swbar a[aria-current="true"]{background:#fff;border-color:#fff;color:#12181F;font-weight:700}
+
+@media (max-width:980px){
+  .gh__in,.gwrap,.gf__in{width:auto;max-width:100%}
+  .gwrap{grid-template-columns:1fr}
+  .gside{flex-direction:row;flex-wrap:wrap}
+  .gside>*{flex:1 1 150px}
+}
