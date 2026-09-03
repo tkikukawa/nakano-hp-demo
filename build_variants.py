@@ -72,7 +72,7 @@ def switcher(root, current):
 
 
 def data(name):
-    with io.open(os.path.join(HERE, "data", name), encoding="utf-8") as f:
+    with io.open(os.path.join(HERE, "data", name), encoding="utf-8-sig") as f:
         return list(csv.DictReader(f))
 
 

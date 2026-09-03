@@ -1,0 +1,2 @@
+# CSVはExcelで開くためCRLF＋UTF-8(BOM)を維持する
+*.csv text eol=crlf
